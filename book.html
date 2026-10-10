@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an appointment — Brisbane Hip Knee &amp; Ankle Rehab Physio</title>
+<meta name="description" content="Physiotherapy and exercise physiology for hip, knee and ankle injuries, surgery and arthritis. Inside 4PX, 307 Old Cleveland Road, Coorparoo, Brisbane.">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap hdr">
+<a class="logo" href="index.html"><img src="logo-wordmark.svg" alt="Brisbane Hip Knee &amp; Ankle Rehab Physio — home" width="104" height="46"></a>
+<nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="about.html">Our approach</a><a href="team.html">Our team</a><a href="services.html">Services &amp; fees</a><a href="funding.html">Funding &amp; referrals</a><a href="articles.html">Articles</a></nav>
+<div class="hdr-cta"><a class="tel" href="tel:0731894586">(07) 3189 4586</a><a class="btn btn-sm" href="book.html">Book online</a></div>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap stack" style="gap:22px"><p class="crumb"><span class="dot"></span>Book</p><h1 class="h1">Book an appointment</h1><p class="lead">Tell us how you're coming to us and we'll show you which appointment to choose and what to bring.</p>
+<div style="margin-top:28px"><h2 class="h3" style="font-size:20px;font-weight:500">How are you funding your care?</h2><div id="booker"></div>
+<script>
+(function(){
+  var list=[
+    {label:'Private or health fund',appt:'Physiotherapy initial consultation (or Exercise physiology initial assessment)',bring:['Health fund card, if you are claiming','Any scans, surgery notes or letters you have'],note:'No referral needed. Your health fund rebate is claimed on the spot.',guide:'private-health.html'},
+    {label:'Medicare GP plan',appt:'Medicare GP plan initial consultation',bring:['Referral from your GP under a chronic condition management plan','Medicare card'],note:'Medicare rebates up to 5 allied health sessions per calendar year, shared across all allied health on your plan.',guide:'medicare.html'},
+    {label:'DVA',appt:'DVA initial consultation',bring:['Veteran Gold or White Card','Your referral, or ask your GP to send it to us'],note:'There is no gap to pay. White Card holders are covered for accepted conditions only.',guide:'dva.html'},
+    {label:'WorkCover',appt:'WorkCover initial consultation',bring:['Claim number','Work capacity certificate','Employer and case manager details'],note:'Once your claim is accepted, your first five physio consultations are pre-approved.',guide:'workcover.html'},
+    {label:'Car accident (CTP)',appt:'CTP initial consultation',bring:['CTP claim number','Insurer name and claims officer contact','Medical certificate'],note:'Once the insurer approves treatment, we bill them directly.',guide:'ctp.html'},
+    {label:'Sports injury insurance',appt:'Sports injury initial consultation',bring:['Your club insurance claim form','Health fund card'],note:'Pay on the day and claim your health fund, then claim part of the remaining gap from the sports insurer.',guide:'sports-insurance.html'}
+  ];
+  var picked=null, root=document.getElementById('booker');
+  var tick='<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4E8A1E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg>';
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function render(){
+    var h='<div role="group" aria-label="Funding pathway" class="picker">';
+    list.forEach(function(p,i){var on=i===picked;
+      h+='<button type="button" class="pick" data-i="'+i+'" aria-pressed="'+on+'">'+esc(p.label)+'</button>';});
+    h+='</div><div aria-live="polite">';
+    if(picked===null){h+='<div class="empty">Choose an option above to see your appointment type and checklist. Not sure? Pick <strong style="color: #072D52; font-weight: 600">Private or health fund</strong>, or call <a href="tel:0731894586" style="font-weight: 700">(07) 3189 4586</a>.</div>';}
+    else{var s=list[picked];
+      h+='<div class="result"><div class="result-main"><div><p style="margin: 0; font-size: 15px; color: #4A5A6C">In online booking, choose</p><p style="margin: 2px 0 0; font-size: 24px; line-height: 1.3; font-weight: 400; color: #072D52">'+esc(s.appt)+'</p></div><div><h3 class="h3">Bring with you</h3><ul class="ticks">';
+      s.bring.forEach(function(b){h+='<li>'+esc(b)+'</li>';});
+      h+='</ul></div><p style="padding: 14px 18px; border-radius: 6px; background: #F5F7F9; color: #5B6775">'+esc(s.note)+'</p></div><div class="result-side"><a class="btn btn-block" href="#online-booking">Continue to online booking</a><a class="btn btn-ghost btn-block" href="tel:0731894586">Call (07) 3189 4586</a><a class="textlink" href="'+s.guide+'" style="text-align: center; padding: 8px 0">Read the full guide</a></div></div>';}
+    h+='</div>'; root.innerHTML=h;
+    root.querySelectorAll('button[data-i]').forEach(function(b){b.addEventListener('click',function(){picked=+b.getAttribute('data-i');render();var f=root.querySelector('button[data-i="'+picked+'"]');if(f)f.focus();});});
+  }
+  render();
+})();
+</script></div></div></section>
+<section class="sec tint"><div class="wrap two-col"><div class="side"><h2 class="h2">Want someone in particular?</h2></div><div class="main stack" style="gap:40px">
+<ul class="rows">
+<li><a class="row-link" href="#online-booking"><span class="row-main"><span class="row-title">Matt Andrews</span><span class="row-sub">Senior Physiotherapist</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#072D52" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></span></a></li>
+<li><a class="row-link" href="#online-booking"><span class="row-main"><span class="row-title">Matt Wiseman</span><span class="row-sub">Physiotherapist and Accredited Exercise Physiologist</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#072D52" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></span></a></li>
+<li><a class="row-link" href="#online-booking"><span class="row-main"><span class="row-title">Sam Neale</span><span class="row-sub">Accredited Exercise Physiologist</span></span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#072D52" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></span></a></li>
+</ul>
+<div class="grid-2"><div class="item"><h3 class="h3">Can't find a time?</h3><p>Call us and we'll add you to the waitlist. Cancellations often open up same-week spots.</p></div><div class="item"><h3 class="h3">Your first visit</h3><p>Wear clothes you can move in (shorts are ideal for hips, knees and ankles) and bring the shoes you train or walk in most. We'll email a short intake form when you book.</p></div></div>
+</div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap ftr"><div class="ftr-grid">
+<div class="stack"><img src="logo-wordmark-reversed.svg" alt="Brisbane Hip Knee &amp; Ankle Rehab Physio" width="118" height="52"><p>Physiotherapy and exercise physiology for hips, knees, ankles and the rest of you.</p></div>
+<div><h2>Visit</h2><p>Inside 4PX Performance Gym<br>307 Old Cleveland Road<br>Coorparoo QLD 4151<br>Rooftop parking<br><a href="tel:0731894586" style="color:#fff">(07) 3189 4586</a></p></div>
+<div><h2>Explore</h2><ul><li><a href="about.html">Our approach</a></li><li><a href="team.html">Our team</a></li><li><a href="services.html">Services and fees</a></li><li><a href="articles.html">Articles</a></li><li><a href="book.html">Book an appointment</a></li></ul></div>
+<div><h2>Funding and referrals</h2><ul><li><a href="private-health.html">Private and health fund</a></li><li><a href="medicare.html">Medicare GP plan</a></li><li><a href="dva.html">DVA</a></li><li><a href="workcover.html">WorkCover</a></li><li><a href="ctp.html">Car accident (CTP)</a></li><li><a href="sports-insurance.html">Sports injury insurance</a></li></ul></div>
+</div><div class="ftr-bottom"><span>© [YEAR] [BUSINESS ENTITY NAME] ABN [XX XXX XXX XXX]</span><span>Information on this site is general and doesn't replace an individual assessment.</span></div></div></footer>
+
+</body>
+</html>
